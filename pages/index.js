@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import cssReset from '../css-reset';
 import { COLORS } from '../theme';
-import { Text, BoldText } from '../components';
+import { Text, ImpactText, Header } from '../components';
 
 export default function Home() {
   return (
@@ -11,12 +12,43 @@ export default function Home() {
       </Head>
 
       <main>
+        <Header />
         <div>
-          <BoldText>name</BoldText> <Text>is based in</Text>{' '}
-          <BoldText>Seattle</BoldText> <Text>blah blah blah</Text>
+          <ImpactText>name</ImpactText> <Text>is based in</Text>{' '}
+          <ImpactText>Seattle</ImpactText> <Text>blah blah blah</Text>
         </div>
       </main>
 
+      <style jsx global>
+        {cssReset}
+      </style>
+      <style jsx global>{`
+        @font-face {
+          font-family: Roboto;
+          src: url('/Roboto/Roboto-Regular.ttf');
+        }
+        @font-face {
+          font-family: RobotoLight;
+          src: url('/Roboto/Roboto-Light.ttf');
+        }
+        @font-face {
+          font-family: RobotoBold;
+          src: url('/Roboto/Roboto-Bold.ttf');
+        }
+        body {
+          background: ${COLORS.background};
+          color: ${COLORS.text};
+          font-family: RobotoLight;
+        }
+        a {
+          color: ${COLORS.link};
+          transition: color 0.3s ease;
+          text-decoration: none;
+        }
+        a:hover {
+          color: ${COLORS.linkHover};
+        }
+      `}</style>
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -34,28 +66,6 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-          background: ${COLORS.background};
-          color: ${COLORS.text};
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        * {
-          box-sizing: border-box;
         }
       `}</style>
     </div>

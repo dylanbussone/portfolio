@@ -1,14 +1,4 @@
-import styled from 'styled-components';
-import { COLORS, FONT_SIZES } from '../theme';
+import { Text, ImpactText } from './text';
+import Header from './header';
 
-const Text = styled.span`
-  font-size: ${FONT_SIZES.m};
-  color: ${COLORS.text};
-`;
-
-const BoldText = styled(Text)`
-  color: ${COLORS.boldText};
-  font-weight: bold;
-`;
-
-export { Text, BoldText };
+export { Text, ImpactText, Header };
