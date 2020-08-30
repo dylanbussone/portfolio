@@ -1,27 +1,25 @@
-import css from 'styled-jsx/css';
+import styled, { css } from 'styled-components';
 import { COLORS, FONT_SIZES } from '../theme';
 
-const textStyle = css.span`
-  font-size: ${FONT_SIZES.m};
-  color: ${COLORS.text};
+const Text = styled.span`
+  ${(props) =>
+    css`
+      font-size: ${props.size || FONT_SIZES.m};
+      color: ${props.color || COLORS.text};
+    `}
 `;
-const Text = ({ children }) => (
-  <span>
-    {children}
-    <style jsx>{textStyle}</style>
-  </span>
-);
 
-const impactTextStyle = css.span`
-  // font-family: Roboto;
-  color: ${COLORS.impactText};
+const ImpactText = (props) => <Text color={COLORS.impactText} {...props} />;
+
+const LinkText = styled.a`
+  font-size: ${(props) => props.size || FONT_SIZES.m};
+  color: ${COLORS.link};
+  transition: color 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: ${COLORS.linkHover};
+  }
 `;
-const ImpactText = ({ children }) => (
-  <span>
-    {children}
-    <style jsx>{textStyle}</style>
-    <style jsx>{impactTextStyle}</style>
-  </span>
-);
 
-export { Text, ImpactText };
+export { Text, ImpactText, LinkText };

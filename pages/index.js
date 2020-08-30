@@ -5,17 +5,22 @@ import { Text, ImpactText, Header } from '../components';
 
 export default function Home() {
   return (
-    <div className="container">
+    <React.Fragment>
       <Head>
         <title>Dylan Bussone | Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <main>
-        <Header />
-        <div>
-          <ImpactText>name</ImpactText> <Text>is based in</Text>{' '}
-          <ImpactText>Seattle</ImpactText> <Text>blah blah blah</Text>
+        <div className="bio">
+          <ImpactText>Dylan Bussone</ImpactText>{' '}
+          <Text>is a software engineer based in</Text>{' '}
+          <ImpactText>Seattle</ImpactText>{' '}
+          <Text>
+            with a focus on web development, performance, and cross-device user
+            experience.
+          </Text>
         </div>
       </main>
 
@@ -40,34 +45,18 @@ export default function Home() {
           color: ${COLORS.text};
           font-family: RobotoLight;
         }
-        a {
-          color: ${COLORS.link};
-          transition: color 0.3s ease;
-          text-decoration: none;
-        }
-        a:hover {
-          color: ${COLORS.linkHover};
-        }
       `}</style>
       <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+        main {
+          margin-top: 75px;
+          padding: 12rem 3rem 5rem;
         }
 
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+        .bio {
+          width: 50%;
+          line-height: 1.5;
         }
       `}</style>
-    </div>
+    </React.Fragment>
   );
 }

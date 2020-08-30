@@ -1,9 +1,9 @@
 const COLORS = {
   background: '#010101',
-  impactText: '#f5f5f5',
-  text: '#ccc',
-  link: '#f5f5f5',
-  linkHover: '#aaa',
+  impactText: '#fff',
+  text: '#909090',
+  link: '#fff',
+  linkHover: '#909090',
 };
 
 const FONT_SIZES = {
