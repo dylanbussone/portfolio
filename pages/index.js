@@ -1,7 +1,29 @@
 import Head from 'next/head';
+import styled from 'styled-components';
+import theme from '../theme';
 import cssReset from '../css-reset';
-import { COLORS } from '../theme';
 import { Text, ImpactText, Header } from '../components';
+
+const Main = styled.main`
+  padding: 12rem 3rem 5rem;
+
+  ${(p) => p.theme.mediaMin.md`
+    margin-top: 75px;
+  `}
+`;
+
+const Bio = styled.div`
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+
+  > p {
+    margin-bottom: 2rem;
+  }
+
+  ${(p) => p.theme.mediaMin.md`
+    width: 50%;
+  `}
+`;
 
 export default function Home() {
   return (
@@ -12,17 +34,25 @@ export default function Home() {
       </Head>
 
       <Header />
-      <main>
-        <div className="bio">
-          <ImpactText>Dylan Bussone</ImpactText>{' '}
-          <Text>is a software engineer based in</Text>{' '}
-          <ImpactText>Seattle</ImpactText>{' '}
-          <Text>
-            with a focus on web development, performance, and cross-device user
-            experience.
-          </Text>
-        </div>
-      </main>
+      <Main>
+        <Bio>
+          <p>
+            <ImpactText size="lg">Dylan Bussone</ImpactText>{' '}
+            <Text>is a software engineer based in</Text>{' '}
+            <ImpactText size="lg">Seattle</ImpactText>{' '}
+            <Text>
+              with a focus on web development, performance, and cross-device
+              user experience.
+            </Text>
+          </p>
+          <p>
+            <Text>Other text</Text>
+          </p>
+          <p>
+            <Text size="xs">Last text</Text>
+          </p>
+        </Bio>
+      </Main>
 
       <style jsx global>
         {cssReset}
@@ -41,20 +71,9 @@ export default function Home() {
           src: url('/Roboto/Roboto-Bold.ttf');
         }
         body {
-          background: ${COLORS.background};
-          color: ${COLORS.text};
+          background: ${theme.COLORS.background};
+          color: ${theme.COLORS.text};
           font-family: RobotoLight;
-        }
-      `}</style>
-      <style jsx>{`
-        main {
-          margin-top: 75px;
-          padding: 12rem 3rem 5rem;
-        }
-
-        .bio {
-          width: 50%;
-          line-height: 1.5;
         }
       `}</style>
     </React.Fragment>

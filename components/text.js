@@ -1,24 +1,29 @@
 import styled, { css } from 'styled-components';
-import { COLORS, FONT_SIZES } from '../theme';
 
 const Text = styled.span`
-  ${(props) =>
+  ${(p) =>
     css`
-      font-size: ${props.size || FONT_SIZES.m};
-      color: ${props.color || COLORS.text};
+      font-size: ${p.theme.FONT_SIZES[p.size || 'md']};
+      color: ${p.color || p.theme.COLORS.text};
     `}
 `;
 
-const ImpactText = (props) => <Text color={COLORS.impactText} {...props} />;
+const ImpactText = styled.span`
+  ${(p) =>
+    css`
+      font-size: ${p.theme.FONT_SIZES[p.size || 'md']};
+      color: ${p.color || p.theme.COLORS.impactText};
+    `}
+`;
 
 const LinkText = styled.a`
-  font-size: ${(props) => props.size || FONT_SIZES.m};
-  color: ${COLORS.link};
+  font-size: ${(p) => p.theme.FONT_SIZES[p.size || 'md']};
+  color: ${(p) => p.theme.COLORS.link};
   transition: color 0.3s ease;
   text-decoration: none;
 
   &:hover {
-    color: ${COLORS.linkHover};
+    color: ${(p) => p.theme.COLORS.linkHover};
   }
 `;
 

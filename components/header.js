@@ -10,6 +10,7 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   height: 75px;
+  background: black;
   padding: 0 3rem;
 `;
 
@@ -22,14 +23,25 @@ const Nav = styled.nav`
   }
 `;
 
+// TODO: for mobile, use dropdown menu
 const Header = () => (
   <StyledHeader>
-    <LinkText href="/">Dylan Bussone</LinkText>
+    <LinkText href="/" size="sm">
+      Dylan Bussone
+    </LinkText>
     <Nav>
-      <LinkText href="#">Work</LinkText>
-      <LinkText href="#">Fun</LinkText>
-      <LinkText href="#">About</LinkText>
-      <LinkText href="#">Resume</LinkText>
+      <LinkText href="#" size="sm">
+        Work
+      </LinkText>
+      <LinkText href="#" size="sm">
+        Fun
+      </LinkText>
+      <LinkText href="#" size="sm">
+        About
+      </LinkText>
+      <LinkText href="#" size="sm">
+        Resume
+      </LinkText>
     </Nav>
   </StyledHeader>
 );
