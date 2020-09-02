@@ -28,4 +28,13 @@ const LinkText = styled.a`
   }
 `;
 
-export { Text, ImpactText, LinkText };
+const HeaderLinkText = styled.a`
+  font-size: ${(p) => p.theme.FONT_SIZES.sm};
+  color: ${(p) =>
+    p.highlight ? p.theme.COLORS.highlightedLink : p.theme.COLORS.impactText};
+  transition: color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+`;
+
+export { Text, ImpactText, LinkText, HeaderLinkText };

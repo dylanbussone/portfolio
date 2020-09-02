@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import styled, { css } from 'styled-components';
+import { useInView } from 'react-intersection-observer';
 import theme from '../theme';
 import cssReset from '../css-reset';
 import { Header } from '../components';
-import Bio from '../components/sections/bio';
+import About from '../components/sections/about';
 import Work from '../components/sections/work';
 import Music from '../components/sections/music';
 import { HEADER_HEIGHT } from '../components/header';
@@ -24,6 +25,18 @@ const Section = styled.div`
 `;
 
 export default function Home() {
+  const [aboutRef, aboutInView] = useInView({ threshold: 0.5 });
+  const [workRef, workInView] = useInView({ threshold: 0.5 });
+  const [musicRef, musicInView] = useInView({ threshold: 0.5 });
+
+  const inView = musicInView
+    ? 'Music'
+    : workInView
+    ? 'Work'
+    : aboutInView
+    ? 'About'
+    : null;
+
   return (
     <React.Fragment>
       <Head>
@@ -31,15 +44,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header inView={inView} />
       <Main>
-        <Section>
-          <Bio />
+        <Section id="about" ref={aboutRef}>
+          <About />
         </Section>
-        <Section bg={theme.COLORS.workBackground}>
+        <Section id="work" ref={workRef} bg={theme.COLORS.workBackground}>
           <Work />
         </Section>
-        <Section bg="url(/bulb.jpg)">
+        <Section id="music" ref={musicRef} bg="url(/bulb.jpg)">
           <Music />
         </Section>
       </Main>

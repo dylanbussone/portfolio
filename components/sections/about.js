@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 import { HEADER_HEIGHT } from '../header';
 
-const Bio = styled.div`
+const About = styled.div`
   display: flex;
   align-items: center;
   min-height: calc(100vh - ${HEADER_HEIGHT});
@@ -14,7 +14,7 @@ const Bio = styled.div`
   `}
 `;
 
-const BioText = styled.div`
+const AboutText = styled.div`
   line-height: 1.5;
   letter-spacing: 0.75px;
 
@@ -34,15 +34,15 @@ const BioText = styled.div`
   }
 `;
 
-const BioPic = styled.img`
+const AboutPic = styled.img`
   width: 400px;
   height: 400px;
   border-radius: 4px;
 `;
 
 export default () => (
-  <Bio>
-    <BioText>
+  <About>
+    <AboutText>
       <p>
         <ImpactText size="lg">Dylan Bussone</ImpactText>{' '}
         <Text>is a software engineer based in</Text>{' '}
@@ -59,19 +59,19 @@ export default () => (
             Zillow
           </LinkText>{' '}
           on the Platform team, optimizing frontend infrastructure and
-          maintaining the core GraphQL service.
+          building GraphQL services.
         </Text>
       </p>
       <p>
         <Text size="xs">
           Previously, I worked at{' '}
-          <LinkText size="xs" href="http://socrata.com" target="_blank">
+          <LinkText size="xs" href="https://www.socrata.com" target="_blank">
             Socrata
           </LinkText>{' '}
           until it was acquired by Tyler Technologies.
         </Text>
       </p>
-    </BioText>
-    <BioPic src="/muffin.jpg" />
-  </Bio>
+    </AboutText>
+    <AboutPic src="/muffin.jpg" />
+  </About>
 );

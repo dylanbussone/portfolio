@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LinkText } from './text';
+import { HeaderLinkText } from './text';
 
 const HEADER_HEIGHT = '75px';
 export { HEADER_HEIGHT };
@@ -15,10 +15,6 @@ const Wrapper = styled.header`
   height: ${HEADER_HEIGHT};
   background: ${(p) => p.theme.COLORS.background};
   padding: 0 3rem;
-
-  a {
-    color: ${(p) => p.theme.COLORS.impactText};
-  }
 `;
 
 const Nav = styled.nav`
@@ -38,18 +34,34 @@ const Nav = styled.nav`
   `}
 `;
 
-const Header = () => {
+const scrollTo = (id) => {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+};
+
+const Header = ({ inView }) => {
   return (
     <Wrapper>
-      <LinkText href="/" size="sm">
-        Dylan Bussone
-      </LinkText>
+      <HeaderLinkText href="/">Dylan Bussone</HeaderLinkText>
       <div>
         <Nav>
-          <LinkText size="sm">About</LinkText>
-          <LinkText size="sm">Work</LinkText>
-          <LinkText size="sm">Music</LinkText>
-          <LinkText size="sm">Resume</LinkText>
+          <HeaderLinkText
+            highlight={inView === 'About'}
+            onClick={() => scrollTo('about')}
+          >
+            About
+          </HeaderLinkText>
+          <HeaderLinkText
+            highlight={inView === 'Work'}
+            onClick={() => scrollTo('work')}
+          >
+            Work
+          </HeaderLinkText>
+          <HeaderLinkText
+            highlight={inView === 'Music'}
+            onClick={() => scrollTo('music')}
+          >
+            Music
+          </HeaderLinkText>
         </Nav>
       </div>
     </Wrapper>
