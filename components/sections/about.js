@@ -48,7 +48,7 @@ export default () => (
         <Text>is a software engineer based in</Text>{' '}
         <ImpactText size="lg">Seattle</ImpactText>{' '}
         <Text>
-          with a focus on web development, frontend performance, and cross-device user
+          with a focus on web development, frontend performance, and responsive user
           experience.
         </Text>
       </p>

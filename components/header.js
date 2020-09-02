@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { HeaderLinkText } from './text';
 
-const HEADER_HEIGHT = '75px';
+const HEADER_HEIGHT_PX = 75;
+const HEADER_HEIGHT = `${HEADER_HEIGHT_PX}px`;
 export { HEADER_HEIGHT };
 
 const Wrapper = styled.header`
@@ -35,7 +36,8 @@ const Nav = styled.nav`
 `;
 
 const scrollTo = (id) => {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  const targetY = document.getElementById(id).offsetTop - HEADER_HEIGHT_PX;
+  window.scroll({ top: targetY, behavior: 'smooth' });
 };
 
 const Header = ({ inView }) => {

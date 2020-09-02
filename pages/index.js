@@ -15,6 +15,7 @@ const Main = styled.main`
 
 const Section = styled.div`
   min-height: calc(100vh - ${HEADER_HEIGHT});
+
   ${(p) =>
     p.bg &&
     css`
