@@ -16,6 +16,7 @@ const Wrapper = styled.header`
   height: ${HEADER_HEIGHT};
   background: ${(p) => p.theme.COLORS.background};
   padding: 0 3rem;
+  z-index: 2;
 `;
 
 const Nav = styled.nav`
@@ -32,11 +33,6 @@ const Name = styled(HeaderLinkText)`
     display: none;
   `}
 `;
-
-const scrollTo = (id) => {
-  const targetY = document.getElementById(id).offsetTop - HEADER_HEIGHT_PX;
-  window.scroll({ top: targetY, behavior: 'smooth' });
-};
 
 const Header = ({ inView }) => {
   return (
@@ -67,5 +63,10 @@ const Header = ({ inView }) => {
     </Wrapper>
   );
 };
+
+function scrollTo(id) {
+  const targetY = document.getElementById(id).offsetTop - HEADER_HEIGHT_PX;
+  window.scroll({ top: targetY, behavior: 'smooth' });
+}
 
 export default Header;
