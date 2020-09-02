@@ -19,17 +19,15 @@ const Wrapper = styled.header`
 `;
 
 const Nav = styled.nav`
-  // Desktop
-  ${(p) => p.theme.mediaMin.md`
-    > a {
-      margin-left: 3rem;
-    }
-    > a:first-child {
-      margin-left: 0;
-    }
-  `}
+  > a {
+    margin-left: 3rem;
+  }
+  > a:first-child {
+    margin-left: 0;
+  }
+`;
 
-  // Mobile
+const Name = styled(HeaderLinkText)`
   ${(p) => p.theme.mediaMax.md`
     display: none;
   `}
@@ -43,7 +41,7 @@ const scrollTo = (id) => {
 const Header = ({ inView }) => {
   return (
     <Wrapper>
-      <HeaderLinkText href="/">Dylan Bussone</HeaderLinkText>
+      <Name href="/">Dylan Bussone</Name>
       <div>
         <Nav>
           <HeaderLinkText

@@ -25,7 +25,7 @@ const AboutText = styled.div`
   `}
 
   ${(p) => p.theme.mediaMax.lg`
-    padding-top: 6rem;
+    padding-top: 4rem;
     padding-bottom: 3rem;
   `}
 
