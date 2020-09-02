@@ -21,6 +21,7 @@ const LinkText = styled.a`
   color: ${(p) => p.theme.COLORS.link};
   transition: color 0.3s ease;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: ${(p) => p.theme.COLORS.linkHover};

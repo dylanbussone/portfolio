@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { LinkText } from './text';
 
-const StyledHeader = styled.header`
+const HEADER_HEIGHT = '75px';
+export { HEADER_HEIGHT };
+
+const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,41 +12,48 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   right: 0;
-  height: 75px;
-  background: black;
+  height: ${HEADER_HEIGHT};
+  background: ${(p) => p.theme.COLORS.background};
   padding: 0 3rem;
+
+  a {
+    color: ${(p) => p.theme.COLORS.impactText};
+  }
 `;
 
 const Nav = styled.nav`
-  > a {
-    margin-left: 3rem;
-  }
-  > a:first-child {
-    margin-left: 0;
-  }
+  // Desktop
+  ${(p) => p.theme.mediaMin.md`
+    > a {
+      margin-left: 3rem;
+    }
+    > a:first-child {
+      margin-left: 0;
+    }
+  `}
+
+  // Mobile
+  ${(p) => p.theme.mediaMax.md`
+    display: none;
+  `}
 `;
 
-// TODO: for mobile, use dropdown menu
-const Header = () => (
-  <StyledHeader>
-    <LinkText href="/" size="sm">
-      Dylan Bussone
-    </LinkText>
-    <Nav>
-      <LinkText href="#" size="sm">
-        Work
+const Header = () => {
+  return (
+    <Wrapper>
+      <LinkText href="/" size="sm">
+        Dylan Bussone
       </LinkText>
-      <LinkText href="#" size="sm">
-        Fun
-      </LinkText>
-      <LinkText href="#" size="sm">
-        About
-      </LinkText>
-      <LinkText href="#" size="sm">
-        Resume
-      </LinkText>
-    </Nav>
-  </StyledHeader>
-);
+      <div>
+        <Nav>
+          <LinkText size="sm">About</LinkText>
+          <LinkText size="sm">Work</LinkText>
+          <LinkText size="sm">Music</LinkText>
+          <LinkText size="sm">Resume</LinkText>
+        </Nav>
+      </div>
+    </Wrapper>
+  );
+};
 
 export default Header;

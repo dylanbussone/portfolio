@@ -3,9 +3,9 @@ import { css } from 'styled-components';
 const COLORS = {
   background: '#010101',
   impactText: '#fff',
-  text: '#909090',
-  link: '#fff',
-  linkHover: '#909090',
+  text: '#aaa',
+  link: '#92e1ff',
+  linkHover: '#7ecdff',
 };
 
 const FONT_SIZES = {
