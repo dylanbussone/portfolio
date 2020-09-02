@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Text, ImpactText } from '../text';
 
-const Work = styled.div`
+const Music = styled.div`
   line-height: 1.5;
   letter-spacing: 0.5px;
   padding: 5rem 3rem;
@@ -12,8 +12,8 @@ const Work = styled.div`
 `;
 
 export default () => (
-  <Work>
-      {/* TODO: just have tiles in the black? no title. "Work" title looks bad */}
+  <Music>
+      {/* NO TITLES. looks dumb. Highlight scrolled-to section in header instead */}
     
-  </Work>
+  </Music>
 );

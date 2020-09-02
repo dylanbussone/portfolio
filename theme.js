@@ -6,6 +6,7 @@ const COLORS = {
   text: '#aaa',
   link: '#92e1ff',
   linkHover: '#7ecdff',
+  workBackground: '#010101',
 };
 
 const FONT_SIZES = {

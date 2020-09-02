@@ -5,6 +5,7 @@ import cssReset from '../css-reset';
 import { Header } from '../components';
 import Bio from '../components/sections/bio';
 import Work from '../components/sections/work';
+import Music from '../components/sections/music';
 import { HEADER_HEIGHT } from '../components/header';
 
 const Main = styled.main`
@@ -13,9 +14,13 @@ const Main = styled.main`
 
 const Section = styled.div`
   min-height: calc(100vh - ${HEADER_HEIGHT});
-  ${p => p.bg && css`
-    background: ${p.bg};
-  `}
+  ${(p) =>
+    p.bg &&
+    css`
+      background: ${p.bg};
+      background-position: center;
+      background-size: cover;
+    `}
 `;
 
 export default function Home() {
@@ -31,8 +36,11 @@ export default function Home() {
         <Section>
           <Bio />
         </Section>
-        <Section /* bg={theme.COLORS.section2BG} */>
+        <Section bg={theme.COLORS.workBackground}>
           <Work />
+        </Section>
+        <Section bg="url(/bulb.jpg)">
+          <Music />
         </Section>
       </Main>
 
