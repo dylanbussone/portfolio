@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
 
 const COLORS = {
-  background: '#010101',
+  background: '#000',
   impactText: '#fff',
   text: '#aaa',
   link: '#92e1ff',
   linkHover: '#7ecdff',
   highlightedLink: 'rgb(215, 167, 94)',
-  projectsBackground: '#010101',
+  projectsBackground: '#000',
 };
 
 const FONT_SIZES = {

@@ -39,6 +39,27 @@ const Section = styled.div`
     `}
 `;
 
+const Fade = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-image: ${(p) =>
+      p.top &&
+      css`
+    linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)${
+      p.bottom && css`,`
+    }
+    `}
+    ${(p) =>
+      p.bottom &&
+      css`
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)
+  `};
+`;
+
 export default function Home() {
   const [aboutRef, aboutInView] = useInView({ threshold: 0.5 });
   const [projectsRef, projectsInView] = useInView({ threshold: 0.5 });
@@ -61,11 +82,15 @@ export default function Home() {
 
       <Header inView={inView} />
       <Main>
-        <Section bg="url(/rainier.jpg)" parallax />
+        <Section bg="url(/rainier.jpg)" parallax>
+          <Fade bottom />
+        </Section>
         <Section id="about" ref={aboutRef}>
           <About />
         </Section>
-        <Section bg="url(/ivars.jpg)" parallax short />
+        <Section bg="url(/ivars.jpg)" parallax short>
+          <Fade top bottom />
+        </Section>
         <Section
           id="projects"
           ref={projectsRef}
@@ -73,7 +98,9 @@ export default function Home() {
         >
           <Projects />
         </Section>
-        <Section bg="url(/bulb.jpg)" parallax short />
+        <Section bg="url('/spice tiger.JPG')" parallax short>
+          <Fade top bottom />
+        </Section>
         <Section id="music" ref={musicRef}>
           <Music />
         </Section>

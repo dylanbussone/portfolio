@@ -35,8 +35,8 @@ const AboutText = styled.div`
 `;
 
 const AboutPic = styled.img`
-  width: 400px;
-  height: 400px;
+  max-height: 400px;
+  max-width: 100%;
   border-radius: 4px;
 `;
 
@@ -72,6 +72,6 @@ export default () => (
         </Text>
       </p>
     </AboutText>
-    <AboutPic src="/muffin.jpg" />
+    <AboutPic src="/crocs.jpg" />
   </About>
 );
