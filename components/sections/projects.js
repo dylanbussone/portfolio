@@ -12,19 +12,19 @@ const Tile = styled.div`
   transition: margin 0.3s ease;
 
   &:hover {
-    margin-top: -3px;
+    margin-top: -4px;
   }
 `;
 
-const TileShade = styled.div`
-  background: rgba(0, 0, 0, 0.5);
+const TileShade = styled.a`
+  background: rgba(0, 0, 0, 0.2);
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
   padding: 1.75rem 0;
 
   &:hover {
@@ -32,31 +32,7 @@ const TileShade = styled.div`
   }
 `;
 
-const TileTitle = styled(ImpactText)`
-  background: ${(p) => p.theme.COLORS.background};
-  padding: 1rem;
-  display: inline-block;
-`;
-
-const TileDescription = styled(ImpactText)`
-  padding: 1rem;
-  display: block;
-`;
-
-const TileLinks = styled.div`
-  background: ${(p) => p.theme.COLORS.background};
-  padding: 1rem;
-  position: absolute;
-  bottom: 2rem;
-  left: 0;
-  right: 0;
-
-  a {
-    margin-right: 2rem;
-  }
-`;
-
-const Work = styled.div`
+const Projects = styled.div`
   padding: 5rem 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -66,16 +42,15 @@ const Work = styled.div`
 `;
 
 export default () => (
-  <Work>
+  <Projects>
     <Tile bg="/happy-little-sound-clouds.gif">
-      <TileShade>
-        <TileTitle size="lg">Happy Little Sound Clouds</TileTitle>
+      <TileShade href="https://dylanbussone.github.io/happy-little-sound-clouds" target="_blank">
+        {/* <TileTitle size="lg">Happy Little Sound Clouds</TileTitle>
         <TileDescription size="sm">
           Custom audio player and canvas soundwave progress bar.
           <br />
-          The waveform is
-          drawn dynamically based on window size, and bars are rechunked &
-          averaged to display an appropriate amount of data.
+          The waveform is drawn dynamically based on window size, and bars are
+          rechunked & averaged to display an appropriate amount of data.
         </TileDescription>
         <TileLinks>
           <LinkText
@@ -92,12 +67,12 @@ export default () => (
           >
             GitHub
           </LinkText>
-        </TileLinks>
+        </TileLinks> */}
       </TileShade>
     </Tile>
     <Tile bg="/bagelquest.svg">
-      <TileShade>
-        <TileTitle size="lg">Bagel Quest</TileTitle>
+      <TileShade href="https://bagelquest2020.com/" target="_blank">
+        {/* <TileTitle size="lg">Bagel Quest</TileTitle>
         <TileLinks>
           <LinkText
             size="sm"
@@ -113,8 +88,8 @@ export default () => (
           >
             GitHub
           </LinkText>
-        </TileLinks>
+        </TileLinks> */}
       </TileShade>
     </Tile>
-  </Work>
+  </Projects>
 );

@@ -47,10 +47,10 @@ const Header = ({ inView }) => {
             About
           </HeaderLinkText>
           <HeaderLinkText
-            highlight={inView === 'Work'}
-            onClick={() => scrollTo('work')}
+            highlight={inView === 'Projects'}
+            onClick={() => scrollTo('projects')}
           >
-            Work
+            Projects
           </HeaderLinkText>
           <HeaderLinkText
             highlight={inView === 'Music'}

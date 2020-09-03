@@ -5,7 +5,7 @@ import theme from '../theme';
 import cssReset from '../css-reset';
 import { Header } from '../components';
 import About from '../components/sections/about';
-import Work from '../components/sections/work';
+import Projects from '../components/sections/projects';
 import Music from '../components/sections/music';
 import { HEADER_HEIGHT } from '../components/header';
 
@@ -14,6 +14,7 @@ const Main = styled.main`
 `;
 
 const Section = styled.div`
+  position: relative;
   min-height: calc(100vh - ${HEADER_HEIGHT});
 
   ${(p) =>
@@ -22,18 +23,31 @@ const Section = styled.div`
       background: ${p.bg};
       background-position: center;
       background-size: cover;
+      background-repeat: no-repeat;
+    `}
+
+  ${(p) =>
+    p.parallax &&
+    css`
+      background-attachment: fixed;
+    `}
+
+  ${(p) =>
+    p.short &&
+    css`
+      min-height: calc(50vh - ${HEADER_HEIGHT});
     `}
 `;
 
 export default function Home() {
   const [aboutRef, aboutInView] = useInView({ threshold: 0.5 });
-  const [workRef, workInView] = useInView({ threshold: 0.5 });
+  const [projectsRef, projectsInView] = useInView({ threshold: 0.5 });
   const [musicRef, musicInView] = useInView({ threshold: 0.5 });
 
   const inView = musicInView
     ? 'Music'
-    : workInView
-    ? 'Work'
+    : projectsInView
+    ? 'Projects'
     : aboutInView
     ? 'About'
     : null;
@@ -47,13 +61,20 @@ export default function Home() {
 
       <Header inView={inView} />
       <Main>
+        <Section bg="url(/rainier.jpg)" parallax />
         <Section id="about" ref={aboutRef}>
           <About />
         </Section>
-        <Section id="work" ref={workRef} bg={theme.COLORS.workBackground}>
-          <Work />
+        <Section bg="url(/ivars.jpg)" parallax short />
+        <Section
+          id="projects"
+          ref={projectsRef}
+          bg={theme.COLORS.projectsBackground}
+        >
+          <Projects />
         </Section>
-        <Section id="music" ref={musicRef} bg="url(/bulb.jpg)">
+        <Section bg="url(/bulb.jpg)" parallax short />
+        <Section id="music" ref={musicRef}>
           <Music />
         </Section>
       </Main>
