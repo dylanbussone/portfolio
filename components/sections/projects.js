@@ -1,95 +1,116 @@
 import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 
-const Tile = styled.div`
-  // width: 50%;
-  width: 500px;
-  height: 500px;
-  background: url(${(p) => p.bg});
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  transition: margin 0.3s ease;
-
-  &:hover {
-    margin-top: -4px;
-  }
-`;
-
-const TileShade = styled.a`
-  background: rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: opacity 0.2s ease;
-  padding: 1.75rem 0;
-
-  &:hover {
-    opacity: 1;
-  }
-`;
-
 const Projects = styled.div`
   padding: 5rem 3rem;
+`;
+
+const Tiles = styled.div`
+  margin-top: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  ${(p) => p.theme.mediaMin.md`
+  ${(p) => p.theme.mediaMax.lg`
+    grid-template-columns: 1fr;
   `}
+`;
+
+const Tile = styled.div`
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  ${(p) => p.theme.mediaMin.lg`
+    &:nth-child(1) {
+      margin-right: 1rem;
+    }
+    &:nth-child(2) {
+      margin-left: 1rem;
+    }
+  `}
+
+  ${(p) => p.theme.mediaMax.lg`
+    margin-bottom: 4rem;
+  `}
+
+  > * {
+    margin-bottom: 1rem;
+  }
+`;
+
+const TileImg = styled.div`
+  background: url('${(p) => p.bg}');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 30vh;
+  width: 100%;
+`;
+
+const Links = styled.div`
+  > * {
+    margin-right: 1rem;
+  }
 `;
 
 export default () => (
   <Projects>
-    <Tile bg="/happy-little-sound-clouds.gif">
-      <TileShade href="https://dylanbussone.github.io/happy-little-sound-clouds" target="_blank">
-        {/* <TileTitle size="lg">Happy Little Sound Clouds</TileTitle>
-        <TileDescription size="sm">
-          Custom audio player and canvas soundwave progress bar.
+    <ImpactText size="lg">Projects</ImpactText>
+    <Tiles>
+      <Tile>
+        <TileImg bg="/happy-little-sound-clouds.gif" />
+        <ImpactText size="lg">Happy Little Sound Clouds</ImpactText>
+        <Text size="sm">
+          I built a custom audio player and canvas soundwave progress bar.
           <br />
           The waveform is drawn dynamically based on window size, and bars are
-          rechunked & averaged to display an appropriate amount of data.
-        </TileDescription>
-        <TileLinks>
+          re-chunked & averaged to display an appropriately sized waveform.
+        </Text>
+        <Links>
           <LinkText
-            size="sm"
+            size="xs"
             href="https://dylanbussone.github.io/happy-little-sound-clouds"
             target="_blank"
           >
             Demo
           </LinkText>
+          <span>|</span>
           <LinkText
-            size="sm"
+            size="xs"
             href="https://github.com/dylanbussone/happy-little-sound-clouds"
             target="_blank"
           >
             GitHub
           </LinkText>
-        </TileLinks> */}
-      </TileShade>
-    </Tile>
-    <Tile bg="/bagelquest.svg">
-      <TileShade href="https://bagelquest2020.com/" target="_blank">
-        {/* <TileTitle size="lg">Bagel Quest</TileTitle>
-        <TileLinks>
+        </Links>
+      </Tile>
+      <Tile>
+        <TileImg bg="/bagelquest.svg" />
+        <ImpactText size="lg">Bagel Quest 2020</ImpactText>
+        <Text size="sm">
+          My S.O. is from the east coast and is very passionate about bagels.
+          <br />
+          So we hosted a bagel competition.
+        </Text>
+        <Links>
           <LinkText
-            size="sm"
+            size="xs"
             href="https://bagelquest2020.com/"
             target="_blank"
           >
             Demo
           </LinkText>
+          <span>|</span>
           <LinkText
-            size="sm"
+            size="xs"
             href="https://github.com/dylanbussone/bagel-quest"
             target="_blank"
           >
             GitHub
           </LinkText>
-        </TileLinks> */}
-      </TileShade>
-    </Tile>
+        </Links>
+      </Tile>
+    </Tiles>
   </Projects>
 );

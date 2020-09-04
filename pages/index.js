@@ -127,6 +127,10 @@ export default function Home() {
           color: ${theme.COLORS.text};
           font-family: RobotoLight;
         }
+        p, div, span, a {
+          line-height: 1.5;
+          letter-spacing: 0.5px;
+        }
       `}</style>
     </React.Fragment>
   );

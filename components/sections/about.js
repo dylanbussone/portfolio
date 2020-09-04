@@ -15,8 +15,10 @@ const About = styled.div`
 `;
 
 const AboutText = styled.div`
-  line-height: 1.5;
-  letter-spacing: 0.75px;
+  span {
+    line-height: 1.5;
+    letter-spacing: 0.75px;
+  }
 
   ${(p) => p.theme.mediaMin.lg`
     width: 50%;
