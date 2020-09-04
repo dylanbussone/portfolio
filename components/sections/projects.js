@@ -73,7 +73,7 @@ export default () => (
             href="https://dylanbussone.github.io/happy-little-sound-clouds"
             target="_blank"
           >
-            Demo
+            Website
           </LinkText>
           <span>|</span>
           <LinkText
@@ -99,7 +99,7 @@ export default () => (
             href="https://bagelquest2020.com/"
             target="_blank"
           >
-            Demo
+            Website
           </LinkText>
           <span>|</span>
           <LinkText
