@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Dylan Bussone | Portfolio</title>
+        <title>Dylan Bussone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
