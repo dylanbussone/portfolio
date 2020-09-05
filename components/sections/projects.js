@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 
-const Projects = styled.div`
+const Wrapper = styled.div`
   padding: 5rem 3rem;
 `;
 
@@ -48,18 +48,25 @@ const TileImg = styled.div`
   width: 100%;
 `;
 
+const TileVideo = styled.video`
+  height: 30vh;
+  width: 100%;
+`;
+
 const Links = styled.div`
   > * {
     margin-right: 1rem;
   }
 `;
 
-export default () => (
-  <Projects>
+const Projects = () => (
+  <Wrapper>
     <ImpactText size="lg">Projects</ImpactText>
     <Tiles>
       <Tile>
-        <TileImg bg="/happy-little-sound-clouds.gif" />
+        <TileVideo autoPlay muted loop>
+          <source src="/happy-little-sound-clouds.mp4" type="video/mp4" />
+        </TileVideo>
         <ImpactText size="lg">Happy Little Sound Clouds</ImpactText>
         <Text size="sm">
           I built a custom audio player and canvas soundwave progress bar.
@@ -71,7 +78,6 @@ export default () => (
           <LinkText
             size="xs"
             href="https://dylanbussone.github.io/happy-little-sound-clouds"
-            target="_blank"
           >
             Website
           </LinkText>
@@ -79,7 +85,6 @@ export default () => (
           <LinkText
             size="xs"
             href="https://github.com/dylanbussone/happy-little-sound-clouds"
-            target="_blank"
           >
             GitHub
           </LinkText>
@@ -94,23 +99,20 @@ export default () => (
           So we hosted a bagel competition.
         </Text>
         <Links>
-          <LinkText
-            size="xs"
-            href="https://bagelquest2020.com/"
-            target="_blank"
-          >
+          <LinkText size="xs" href="https://bagelquest2020.com/">
             Website
           </LinkText>
           <span>|</span>
           <LinkText
             size="xs"
             href="https://github.com/dylanbussone/bagel-quest"
-            target="_blank"
           >
             GitHub
           </LinkText>
         </Links>
       </Tile>
     </Tiles>
-  </Projects>
+  </Wrapper>
 );
+
+export default Projects;

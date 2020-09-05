@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 import { HEADER_HEIGHT } from '../header';
 
-const Music = styled.div`
+const Wrapper = styled.div`
   padding: 5rem 3rem;
   height: calc(100vh - ${HEADER_HEIGHT});
 `;
@@ -12,30 +12,22 @@ const Description = styled(Text)`
   display: block;
 `;
 
-export default () => (
-  <Music>
+const Music = () => (
+  <Wrapper>
     <Description>
-      My biggest hobby is making music under the moniker <ImpactText>Dylonious</ImpactText>.
+      My biggest hobby is making music under the moniker{' '}
+      <ImpactText>Dylonious</ImpactText>.
       <br /> You can find me on{' '}
-      <LinkText
-        href="https://open.spotify.com/artist/1Op9vSnBgavICOjzdFpM3X?si=fJVryOLfRxSa4fLcXasy_g"
-        target="_blank"
-      >
+      <LinkText href="https://open.spotify.com/artist/1Op9vSnBgavICOjzdFpM3X?si=fJVryOLfRxSa4fLcXasy_g">
         Spotify
       </LinkText>
       ,{' '}
-      <LinkText href="https://www.youtube.com/user/dbuss1music" target="_blank">
+      <LinkText href="https://www.youtube.com/user/dbuss1music">
         YouTube
       </LinkText>
       ,{' '}
-      <LinkText href="https://soundcloud.com/dylanbussone" target="_blank">
-        Soundcloud
-      </LinkText>
-      , or{' '}
-      <LinkText href="https://dylonious.bandcamp.com/" target="_blank">
-        Bandcamp
-      </LinkText>
-      .
+      <LinkText href="https://soundcloud.com/dylanbussone">Soundcloud</LinkText>
+      , or <LinkText href="https://dylonious.bandcamp.com/">Bandcamp</LinkText>.
     </Description>
 
     <iframe
@@ -46,5 +38,7 @@ export default () => (
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     />
-  </Music>
+  </Wrapper>
 );
+
+export default Music;

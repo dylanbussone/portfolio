@@ -82,19 +82,19 @@ export default function Home() {
 
       <Header inView={inView} />
       <Main>
-        <Section bg="url(/rainier.jpg)" parallax>
+        <Section bg="url(/rainier.webp)" parallax>
           <Fade bottom />
         </Section>
         <Section id="about" ref={aboutRef}>
           <About />
         </Section>
-        <Section bg="url(/ivars.jpg)" parallax short>
+        <Section bg="url(/ivars.webp)" parallax short>
           <Fade top bottom />
         </Section>
         <Section id="projects" ref={projectsRef}>
           <Projects />
         </Section>
-        <Section bg="url('/spice tiger.JPG')" parallax short>
+        <Section bg="url('/spice tiger.webp')" parallax short>
           <Fade top bottom />
         </Section>
         <Section id="music" ref={musicRef}>

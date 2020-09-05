@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 import { HEADER_HEIGHT } from '../header';
 
-const About = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
   min-height: calc(100vh - ${HEADER_HEIGHT});
@@ -42,38 +42,40 @@ const AboutPic = styled.img`
   border-radius: 4px;
 `;
 
-export default () => (
-  <About>
+const About = () => (
+  <Wrapper>
     <AboutText>
       <p>
         <ImpactText size="lg">Dylan Bussone</ImpactText>{' '}
         <Text>is a software engineer based in</Text>{' '}
         <ImpactText size="lg">Seattle</ImpactText>{' '}
         <Text>
-          with a focus on web development, frontend performance, and responsive user
-          experience.
+          with a focus on web development, frontend performance, and responsive
+          user experience.
         </Text>
       </p>
       <p>
         <Text size="sm">
           I'm currently working at{' '}
-          <LinkText size="sm" href="https://www.zillow.com/" target="_blank">
+          <LinkText size="sm" href="https://www.zillow.com/">
             Zillow
           </LinkText>{' '}
-          on the Platform team, optimizing frontend infrastructure and
-          building GraphQL services.
+          on the Platform team, optimizing frontend infrastructure and building
+          GraphQL services.
         </Text>
       </p>
       <p>
         <Text size="xs">
           Previously, I worked at{' '}
-          <LinkText size="xs" href="https://www.socrata.com" target="_blank">
+          <LinkText size="xs" href="https://www.socrata.com">
             Socrata
           </LinkText>{' '}
           until it was acquired by Tyler Technologies.
         </Text>
       </p>
     </AboutText>
-    <AboutPic src="/crocs.jpg" />
-  </About>
+    <AboutPic src="/crocs.webp" />
+  </Wrapper>
 );
+
+export default About;
