@@ -7,7 +7,6 @@ const COLORS = {
   link: '#92e1ff',
   linkHover: '#7ecdff',
   highlightedLink: 'rgb(215, 167, 94)',
-  projectsBackground: '#000',
 };
 
 const FONT_SIZES = {

@@ -5,9 +5,6 @@ import { HEADER_HEIGHT } from '../header';
 const Music = styled.div`
   padding: 5rem 3rem;
   height: calc(100vh - ${HEADER_HEIGHT});
-
-  ${(p) => p.theme.mediaMin.md`
-  `}
 `;
 
 const Description = styled(Text)`

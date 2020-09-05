@@ -91,11 +91,7 @@ export default function Home() {
         <Section bg="url(/ivars.jpg)" parallax short>
           <Fade top bottom />
         </Section>
-        <Section
-          id="projects"
-          ref={projectsRef}
-          bg={theme.COLORS.projectsBackground}
-        >
+        <Section id="projects" ref={projectsRef}>
           <Projects />
         </Section>
         <Section bg="url('/spice tiger.JPG')" parallax short>
@@ -127,7 +123,10 @@ export default function Home() {
           color: ${theme.COLORS.text};
           font-family: RobotoLight;
         }
-        p, div, span, a {
+        p,
+        div,
+        span,
+        a {
           line-height: 1.5;
           letter-spacing: 0.5px;
         }
