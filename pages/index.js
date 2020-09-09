@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import styled, { css } from 'styled-components';
 import { useInView } from 'react-intersection-observer';
@@ -61,6 +62,15 @@ const Fade = styled.div`
 `;
 
 export default function Home() {
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-54162808-1');
+  });
   const [aboutRef, aboutInView] = useInView({ threshold: 0.5 });
   const [projectsRef, projectsInView] = useInView({ threshold: 0.5 });
   const [musicRef, musicInView] = useInView({ threshold: 0.5 });
@@ -78,6 +88,11 @@ export default function Home() {
       <Head>
         <title>Dylan Bussone</title>
         <link rel="icon" href="/favicon.ico" />
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-54162808-1"
+        />
       </Head>
 
       <Header inView={inView} />
