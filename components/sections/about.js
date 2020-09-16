@@ -74,7 +74,7 @@ const About = () => (
         </Text>
       </p>
     </AboutText>
-    <AboutPic src="/crocs.webp" />
+    <AboutPic src="/crocs.jpg" />
   </Wrapper>
 );
 

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 import theme from '../theme';
 import cssReset from '../css-reset';
-import { Header } from '../components';
+import { Picture, Header } from '../components';
 import About from '../components/sections/about';
 import Projects from '../components/sections/projects';
 import Music from '../components/sections/music';
@@ -14,52 +14,7 @@ const Main = styled.main`
   margin-top: ${HEADER_HEIGHT};
 `;
 
-const Section = styled.div`
-  position: relative;
-  min-height: calc(100vh - ${HEADER_HEIGHT});
-
-  ${(p) =>
-    p.bg &&
-    css`
-      background: ${p.bg};
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    `}
-
-  ${(p) =>
-    p.parallax &&
-    css`
-      background-attachment: fixed;
-    `}
-
-  ${(p) =>
-    p.short &&
-    css`
-      min-height: calc(50vh - ${HEADER_HEIGHT});
-    `}
-`;
-
-const Fade = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-image: ${(p) =>
-      p.top &&
-      css`
-    linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)${
-      p.bottom && css`,`
-    }
-    `}
-    ${(p) =>
-      p.bottom &&
-      css`
-    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)
-  `};
-`;
+const Section = styled.div``;
 
 export default function Home() {
   useEffect(() => {
@@ -97,21 +52,15 @@ export default function Home() {
 
       <Header inView={inView} />
       <Main>
-        <Section bg="url(/rainier.webp)" parallax>
-          <Fade bottom />
-        </Section>
+        <Picture webpSrc="/rainier.webp" jpgSrc="/rainier.jpg" fadeTop />
         <Section id="about" ref={aboutRef}>
           <About />
         </Section>
-        <Section bg="url(/ivars.webp)" parallax short>
-          <Fade top bottom />
-        </Section>
+        <Picture webpSrc="/ivars.webp" jpgSrc="/ivars.jpg" fadeTop fadeBottom />
         <Section id="projects" ref={projectsRef}>
           <Projects />
         </Section>
-        <Section bg="url('/spice tiger.webp')" parallax short>
-          <Fade top bottom />
-        </Section>
+        <Picture webpSrc="/spice.webp" jpgSrc="/spice.jpg" fadeTop fadeBottom />
         <Section id="music" ref={musicRef}>
           <Music />
         </Section>
