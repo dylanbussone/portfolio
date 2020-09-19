@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   iframe {
     display: block;
     width: 100%;
-    height: 85vh;
+    height: 80vh;
     ${(p) => p.theme.mediaMax.lg`
       height: 45vh;
     `}
@@ -24,20 +24,29 @@ const Description = styled(Text)`
 const Music = () => (
   <Wrapper>
     <ImpactText size="lg">Music</ImpactText>
-    <Description>
+    <Description size="sm">
       My biggest hobby is making music under the moniker{' '}
-      <ImpactText>Dylonious</ImpactText>.
+      <ImpactText size="sm">Dylonious</ImpactText>.
       <br /> You can find me on{' '}
-      <LinkText href="https://open.spotify.com/artist/1Op9vSnBgavICOjzdFpM3X?si=fJVryOLfRxSa4fLcXasy_g">
+      <LinkText
+        size="sm"
+        href="https://open.spotify.com/artist/1Op9vSnBgavICOjzdFpM3X?si=fJVryOLfRxSa4fLcXasy_g"
+      >
         Spotify
       </LinkText>
       ,{' '}
-      <LinkText href="https://www.youtube.com/user/dbuss1music">
+      <LinkText size="sm" href="https://www.youtube.com/user/dbuss1music">
         YouTube
       </LinkText>
       ,{' '}
-      <LinkText href="https://soundcloud.com/dylanbussone">Soundcloud</LinkText>
-      , or <LinkText href="https://dylonious.bandcamp.com/">Bandcamp</LinkText>.
+      <LinkText size="sm" href="https://soundcloud.com/dylanbussone">
+        Soundcloud
+      </LinkText>
+      , or{' '}
+      <LinkText size="sm" href="https://dylonious.bandcamp.com/">
+        Bandcamp
+      </LinkText>
+      .
     </Description>
 
     <iframe

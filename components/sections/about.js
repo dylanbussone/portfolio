@@ -65,9 +65,9 @@ const About = () => (
         </Text>
       </p>
       <p>
-        <Text size="xs">
+        <Text size="sm">
           Previously, I worked at{' '}
-          <LinkText size="xs" href="https://www.socrata.com">
+          <LinkText size="sm" href="https://www.socrata.com">
             Socrata
           </LinkText>{' '}
           until it was acquired by Tyler Technologies.

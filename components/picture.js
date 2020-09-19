@@ -17,6 +17,13 @@ const StyledPicture = styled.picture`
     height: calc(100vh - ${HEADER_HEIGHT});
     width: 100%;
     object-fit: cover;
+
+    ${(p) =>
+      !p.cover &&
+      p.theme.mediaMax.lg`
+      height: 100%;
+      object-fit: contain;
+    `}
   }
 `;
 
@@ -32,15 +39,15 @@ const StyledFade = styled.div`
   background-image: ${(p) =>
       p.fadeTop &&
       css`
-    linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)${
-      p.fadeBottom && css`,`
-    }
-    `}
+      linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)${
+        p.fadeBottom && css`,`
+      }
+      `}
     ${(p) =>
       p.fadeBottom &&
       css`
-    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%)
-  `};
+      linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)
+    `};
 `;
 
 const Picture = ({
@@ -49,10 +56,11 @@ const Picture = ({
   jpgSrc,
   fadeTop,
   fadeBottom,
+  cover,
   hideForMobile,
 }) => (
   <Wrapper hideForMobile={hideForMobile}>
-    <StyledPicture>
+    <StyledPicture cover={cover}>
       <source srcSet={webpSrc} type="image/webp" />
       <source srcSet={pngSrc} type="image/png" />
       <source srcSet={jpgSrc} type="image/jpeg" />
