@@ -15,13 +15,13 @@ const Wrapper = styled.header`
   right: 0;
   height: ${HEADER_HEIGHT};
   background: ${(p) => p.theme.COLORS.background};
-  padding: 0 3rem;
   z-index: 2;
+  ${(p) => p.theme.spacing('padding', '0 3rem', '0 1.5rem')}
 `;
 
 const Nav = styled.nav`
   > a {
-    margin-left: 3rem;
+    ${(p) => p.theme.spacing('margin-left', '3rem', '1.5rem')}
   }
   > a:first-child {
     margin-left: 0;

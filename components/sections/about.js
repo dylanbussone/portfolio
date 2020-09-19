@@ -6,7 +6,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   min-height: calc(100vh - ${HEADER_HEIGHT});
-  padding: 0 3rem;
+  ${(p) => p.theme.spacing('padding', '0 3rem', '0 1.5rem')}
+  ${(p) => p.theme.spacing('margin-bottom', '0', '6em')}
 
   ${(p) => p.theme.mediaMax.lg`
     flex-direction: column;
@@ -27,8 +28,7 @@ const AboutText = styled.div`
   `}
 
   ${(p) => p.theme.mediaMax.lg`
-    padding-top: 4rem;
-    padding-bottom: 3rem;
+    padding-top: 1.5rem;
   `}
 
   > p {

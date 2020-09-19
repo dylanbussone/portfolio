@@ -1,19 +1,29 @@
 import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
-import { HEADER_HEIGHT } from '../header';
 
 const Wrapper = styled.div`
-  padding: 5rem 3rem;
-  height: calc(100vh - ${HEADER_HEIGHT});
+  ${(p) => p.theme.spacing('padding', '5rem 3rem', '1.5rem')}
+  margin-bottom: 3rem;
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 85vh;
+    ${(p) => p.theme.mediaMax.lg`
+      height: 45vh;
+    `}
+  }
 `;
 
 const Description = styled(Text)`
+  margin-top: 2rem;
   margin-bottom: 4rem;
   display: block;
 `;
 
 const Music = () => (
   <Wrapper>
+    <ImpactText size="lg">Music</ImpactText>
     <Description>
       My biggest hobby is making music under the moniker{' '}
       <ImpactText>Dylonious</ImpactText>.
@@ -31,8 +41,6 @@ const Music = () => (
     </Description>
 
     <iframe
-      width="100%"
-      height="100%"
       src="https://www.youtube.com/embed/LSiFCyeKhWE?autoplay=0"
       frameBorder="0"
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

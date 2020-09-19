@@ -23,9 +23,9 @@ export default function Home() {
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'UA-54162808-1');
   });
+
   const [aboutRef, aboutInView] = useInView({ threshold: 0.5 });
   const [projectsRef, projectsInView] = useInView({ threshold: 0.5 });
   const [musicRef, musicInView] = useInView({ threshold: 0.5 });
@@ -56,11 +56,21 @@ export default function Home() {
         <Section id="about" ref={aboutRef}>
           <About />
         </Section>
-        <Picture webpSrc="/ivars.webp" jpgSrc="/ivars.jpg" fadeTop fadeBottom />
+        <Picture
+          webpSrc="/ivars.webp"
+          jpgSrc="/ivars.jpg"
+          fadeBottom
+          hideForMobile
+        />
         <Section id="projects" ref={projectsRef}>
           <Projects />
         </Section>
-        <Picture webpSrc="/spice.webp" jpgSrc="/spice.jpg" fadeTop fadeBottom />
+        <Picture
+          webpSrc="/dylonious.webp"
+          pngSrc="/dylonious.png"
+          fadeBottom
+          hideForMobile
+        />
         <Section id="music" ref={musicRef}>
           <Music />
         </Section>

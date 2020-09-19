@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 
 const Wrapper = styled.div`
-  padding: 5rem 3rem;
+  ${(p) => p.theme.spacing('padding', '5rem 3rem', '1.5rem')}
 `;
 
 const Tiles = styled.div`
@@ -49,8 +49,8 @@ const TileImg = styled.div`
 `;
 
 const TileVideo = styled.video`
-  height: 30vh;
-  width: 100%;
+  max-height: 30vh;
+  max-width: 100%;
 `;
 
 const Links = styled.div`
@@ -67,7 +67,7 @@ const Projects = () => (
         <TileVideo autoPlay muted loop>
           <source src="/happy-little-sound-clouds.mp4" type="video/mp4" />
         </TileVideo>
-        <ImpactText size="lg">Happy Little Sound Clouds</ImpactText>
+        <ImpactText size="md">Happy Little Sound Clouds</ImpactText>
         <Text size="sm">
           I built a custom audio player and canvas soundwave progress bar.
           <br />
@@ -92,7 +92,7 @@ const Projects = () => (
       </Tile>
       <Tile>
         <TileImg bg="/bagelquest.svg" />
-        <ImpactText size="lg">Bagel Quest 2020</ImpactText>
+        <ImpactText size="md">Bagel Quest 2020</ImpactText>
         <Text size="sm">
           My S.O. is from the east coast and is very passionate about bagels.
           <br />

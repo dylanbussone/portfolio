@@ -3,6 +3,13 @@ import { HEADER_HEIGHT } from './header';
 
 const Wrapper = styled.div`
   position: relative;
+  ${(p) =>
+    p.hideForMobile &&
+    css`
+      ${(p) => p.theme.mediaMax.lg`
+        display: none;
+      `}
+    `}
 `;
 
 const StyledPicture = styled.picture`
@@ -36,12 +43,20 @@ const StyledFade = styled.div`
   `};
 `;
 
-const Picture = ({ webpSrc, jpgSrc, fadeTop, fadeBottom }) => (
-  <Wrapper>
+const Picture = ({
+  webpSrc,
+  pngSrc,
+  jpgSrc,
+  fadeTop,
+  fadeBottom,
+  hideForMobile,
+}) => (
+  <Wrapper hideForMobile={hideForMobile}>
     <StyledPicture>
       <source srcSet={webpSrc} type="image/webp" />
+      <source srcSet={pngSrc} type="image/png" />
       <source srcSet={jpgSrc} type="image/jpeg" />
-      <img src={jpgSrc} />
+      <img src={pngSrc || jpgSrc} />
     </StyledPicture>
     {(fadeTop || fadeBottom) && (
       <StyledFade fadeTop={fadeTop} fadeBottom={fadeBottom} />

@@ -24,18 +24,28 @@ const BREAKPOINTS = {
 };
 
 const media = (type) =>
-  Object.keys(BREAKPOINTS).reduce((accumulator, label) => {
-    accumulator[label] = (...args) => css`
+  Object.keys(BREAKPOINTS).reduce((acc, label) => {
+    acc[label] = (...args) => css`
       @media (${type}-width: ${BREAKPOINTS[label]}px) {
         ${css(...args)};
       }
     `;
-    return accumulator;
+    return acc;
   }, {});
+
+const spacing = (type = 'margin', desktopSpacing, mobileSpacing) => css`
+  ${media('min').lg`
+    ${type}: ${desktopSpacing};
+  `}
+  ${media('max').lg`
+    ${type}: ${mobileSpacing};
+  `}
+`;
 
 export default {
   COLORS,
   FONT_SIZES,
   mediaMin: media('min'),
   mediaMax: media('max'),
+  spacing,
 };
