@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
 
 const Wrapper = styled.div`
-  ${(p) => p.theme.spacing('padding', '5rem 3rem', '1.5rem')}
+  padding: 5rem 3rem;
 `;
 
 const Tiles = styled.div`
@@ -31,11 +31,11 @@ const Tile = styled.div`
   `}
 
   ${(p) => p.theme.mediaMax.lg`
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
   `}
 
   > * {
-    margin-bottom: 1rem;
+    margin-bottom: 12px;
   }
 `;
 
@@ -81,7 +81,7 @@ const Projects = () => (
           >
             Website
           </LinkText>
-          <span>|</span>
+          <Text size="xs">|</Text>
           <LinkText
             size="xs"
             href="https://github.com/dylanbussone/happy-little-sound-clouds"
@@ -102,7 +102,7 @@ const Projects = () => (
           <LinkText size="xs" href="https://bagelquest2020.com/">
             Website
           </LinkText>
-          <span>|</span>
+          <Text size="xs">|</Text>
           <LinkText
             size="xs"
             href="https://github.com/dylanbussone/bagel-quest"

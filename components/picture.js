@@ -3,10 +3,18 @@ import { HEADER_HEIGHT } from './header';
 
 const Wrapper = styled.div`
   position: relative;
+  padding: ${p => p.verticalPadding ? '3rem' : '0'} 0;
   ${(p) =>
     p.hideForMobile &&
     css`
       ${(p) => p.theme.mediaMax.lg`
+        display: none;
+      `}
+    `}
+  ${(p) =>
+    p.hideForDesktop &&
+    css`
+      ${(p) => p.theme.mediaMin.lg`
         display: none;
       `}
     `}
@@ -58,8 +66,10 @@ const Picture = ({
   fadeBottom,
   cover,
   hideForMobile,
+  hideForDesktop,
+  verticalPadding,
 }) => (
-  <Wrapper hideForMobile={hideForMobile}>
+  <Wrapper hideForMobile={hideForMobile} hideForDesktop={hideForDesktop} verticalPadding={verticalPadding}>
     <StyledPicture cover={cover}>
       <source srcSet={webpSrc} type="image/webp" />
       <source srcSet={pngSrc} type="image/png" />

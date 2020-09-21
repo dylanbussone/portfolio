@@ -23,7 +23,7 @@ const BREAKPOINTS = {
   xl: 1200,
 };
 
-const media = (type) =>
+const media = (type = 'min') =>
   Object.keys(BREAKPOINTS).reduce((acc, label) => {
     acc[label] = (...args) => css`
       @media (${type}-width: ${BREAKPOINTS[label]}px) {
@@ -33,19 +33,9 @@ const media = (type) =>
     return acc;
   }, {});
 
-const spacing = (type = 'margin', desktopSpacing, mobileSpacing) => css`
-  ${media('min').lg`
-    ${type}: ${desktopSpacing};
-  `}
-  ${media('max').lg`
-    ${type}: ${mobileSpacing};
-  `}
-`;
-
 export default {
   COLORS,
   FONT_SIZES,
   mediaMin: media('min'),
   mediaMax: media('max'),
-  spacing,
 };

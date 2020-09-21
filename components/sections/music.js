@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import { Text, ImpactText, LinkText } from '../text';
+import Picture from '../picture';
 
 const Wrapper = styled.div`
-  ${(p) => p.theme.spacing('padding', '5rem 3rem', '1.5rem')}
+  padding: 5rem 3rem;
   margin-bottom: 3rem;
 
   iframe {
@@ -24,6 +25,7 @@ const Description = styled(Text)`
 const Music = () => (
   <Wrapper>
     <ImpactText size="lg">Music</ImpactText>
+    <Picture webpSrc="/dylonious.webp" pngSrc="/dylonious.png" verticalPadding hideForDesktop />
     <Description size="sm">
       My biggest hobby is making music under the moniker{' '}
       <ImpactText size="sm">Dylonious</ImpactText>.
